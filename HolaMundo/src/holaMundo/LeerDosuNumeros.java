@@ -12,6 +12,6 @@ public class LeerDosuNumeros {
 		int b = sc.nextInt();
 		int suma = a + b;
 		System.out.println("La suma es: " + suma);
-		int c = a + b;
+		sc.close();
 	}
 }

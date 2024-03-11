@@ -13,7 +13,7 @@ public class Ejercicio04 {
 		} else {
 			System.out.println("Es impar!!");
 		}
-
+		sc.close();
 	}
 
 }
