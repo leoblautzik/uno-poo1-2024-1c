@@ -22,7 +22,6 @@ public class Ejercicio26 {
 						" veces");
 			}
 		}
-
 	}
 
 	public static void main(String[] args) {
