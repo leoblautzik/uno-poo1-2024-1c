@@ -5,8 +5,8 @@ public class TarjetaBaja {
 	private double saldo;
 	private int viajesEnColectivo = 0;
 	private int viajesEnSubte = 0;
-	private static double PRECIO_COLECTIVO = 21.50;
-	private static double PRECIO_SUBTE = 19.50;
+	static double PRECIO_COLECTIVO = 21.50;
+	static double PRECIO_SUBTE = 19.50;
 	
 	/**
 	 * post: saldo de la Tarjeta en saldoInicial.
