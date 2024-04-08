@@ -33,6 +33,14 @@ public class Circulo {
 		c1.mover(-4,-4);
 		System.out.println(c1);
 	}
+
+	public double obtenerRadio() {
+		return radio;
+	}
+
+	public Punto getCentro() {
+		return this.centro;
+	}
 	
 
 }
