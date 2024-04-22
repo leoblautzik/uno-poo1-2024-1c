@@ -1,10 +1,11 @@
 package empresa;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Empresa {
 
-	ArrayList<Empleado> empleados;
+	private ArrayList<Empleado> empleados;
 
 	public Empresa() {
 		this.empleados = new ArrayList<Empleado>();
@@ -41,6 +42,18 @@ public class Empresa {
 		System.out.println("pepe " + pepe.getSalario());
 
 		System.out.println(acme.getMontoTotal());
+		
+		System.out.println("Desordenado--------");
+		for(Empleado ce : acme.empleados) {
+			System.out.println(ce.getSalario());
+		}
+		
+		Collections.sort(acme.empleados, Collections.reverseOrder());
+		 
+		System.out.println("Ordenado--------");
+		for(Empleado ce : acme.empleados) {
+			System.out.println(ce.getSalario());
+		}
 
 	}
 }

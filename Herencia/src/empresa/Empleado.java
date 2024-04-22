@@ -1,6 +1,6 @@
 package empresa;
 
-public abstract class Empleado {
+public abstract class Empleado implements Comparable<Empleado>{
 
 	private int ht;
 	private int hijos;
@@ -26,5 +26,16 @@ public abstract class Empleado {
 	protected int getHt() {
 		return ht;
 	}
+	
+	@Override
+	public int compareTo(Empleado e) {
+//		if(this.getSalario() < e.getSalario())
+//			return -1;
+//		else if(this.getSalario() > e.getSalario())
+//			return 1;
+//		else return 0;
+		return Double.compare(this.getSalario(), e.getSalario());
+	}
 
+	
 }
