@@ -8,13 +8,13 @@ public class Arquero extends Unidad {
 		super(5, 50, posicion);
 	}
 	
-	
+	public void recargarFlechas() {
+		this.flechas += 6;
+	}
 
 	protected int getFlechas() {
 		return flechas;
 	}
-
-
 
 	@Override
 	public boolean puedeAtacar(Unidad oponente) {
