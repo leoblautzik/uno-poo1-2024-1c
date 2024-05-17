@@ -19,7 +19,7 @@ public class Palindromo {
 	
 	public String invertirCadena(String cadena) {
 		String invertida = "";
-		Stack<Character> pila = new Stack<Character>();
+		Pila<Character> pila = new PilaL<Character>();
 		
 		for(Character cadaChar : cadena.toCharArray()) {
 			pila.push(cadaChar);

@@ -1,7 +1,5 @@
 package pilasYcolas;
 
-import java.util.Stack;
-
 /**
  * En una terminal de teletipo existe un carácter de retroceso que permite
  * cancelar el último carácter. Por ejemplo: si el carácter de retroceso es /,
@@ -16,27 +14,27 @@ public class TerminalDeTeletipo {
 
 	public String procesar(String tira) {
 		String resultado = "";
-		Stack<Character> pilaIn = new Stack<Character>();
-		Stack<Character> pilaOut = new Stack<Character>();
+		Pila<Character> pilaIn = new PilaL<Character>();
+		Pila<Character> pilaOut = new PilaL<Character>();
 
 		for (Character cadaChar : tira.toCharArray()) {
 			if (cadaChar == '&') {
-				while (!pilaIn.empty()) {
+				while (!pilaIn.isEmpty()) {
 					pilaIn.pop();
 				}
 			} else if (cadaChar == '/') {
-				if (!pilaIn.empty()) {
+				if (!pilaIn.isEmpty()) {
 					pilaIn.pop();
 				}
 			} else
 				pilaIn.push(cadaChar);
 
 		}
-		while (!pilaIn.empty()) {
+		while (!pilaIn.isEmpty()) {
 			pilaOut.push(pilaIn.pop());
 		}
 
-		while (!pilaOut.empty()) {
+		while (!pilaOut.isEmpty()) {
 			resultado += pilaOut.pop();
 		}
 		return resultado;
