@@ -29,5 +29,10 @@ public class ColaL<T> implements Cola<T> {
 	public boolean isEmpty() {
 		return lista.isEmpty();
 	}
+	
+	@Override
+	public String toString() {
+		return lista.toString();
+	}
 
 }
