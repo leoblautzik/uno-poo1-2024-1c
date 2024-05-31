@@ -1,5 +1,7 @@
 package procesarPersonas;
 
+import java.util.Objects;
+
 public class Persona implements Comparable<Persona>{
 	
 	private Integer dni;
@@ -34,6 +36,24 @@ public class Persona implements Comparable<Persona>{
 	public int compareTo(Persona p) {
 		return this.getApenom().compareTo(p.getApenom());
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(dni);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persona other = (Persona) obj;
+		return this.dni.equals(other.dni);
+	}
+	
 	
 	
 	
