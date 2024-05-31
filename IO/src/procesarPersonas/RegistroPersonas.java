@@ -8,6 +8,8 @@ import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class RegistroPersonas {
 
@@ -88,16 +90,87 @@ public class RegistroPersonas {
 		}
 	}
 
-	public int cpemep(List<Persona> l) {
+	public int cantPersonasConEdadSobreLaMedia(List<Persona> l) {
 		int contador = 0;
-		double edadPromedio=this.getEdadPromedio(l);
-		for(Persona p : l) {
+		double edadPromedio = this.getEdadPromedio(l);
+		for (Persona p : l) {
 			if (p.getEdad() > edadPromedio)
-				contador ++;
+				contador++;
+		}
+
+		return contador;
+
+	}
+
+	public LinkedList<Persona> personasDeMayorEdad(List<Persona> l) {
+		LinkedList<Persona> aux = new LinkedList<Persona>();
+		int mayorEdad = l.get(0).getEdad();
+
+		for (Persona cp : l) {
+			if (cp.getEdad() > mayorEdad) {
+				mayorEdad = cp.getEdad();
+			}
+		}
+
+		for (Persona cp : l) {
+			if (cp.getEdad() == mayorEdad) {
+				aux.add(cp);
+			}
+		}
+
+		return aux;
+	}
+
+	public LinkedList<Persona> personasDeMenorEdad(List<Persona> l) {
+		LinkedList<Persona> aux = new LinkedList<Persona>();
+		int mayorEdad = l.get(0).getEdad();
+
+		for (Persona cp : l) {
+			if (cp.getEdad() < mayorEdad) {
+				mayorEdad = cp.getEdad();
+			}
+		}
+
+		for (Persona cp : l) {
+			if (cp.getEdad() == mayorEdad) {
+				aux.add(cp);
+			}
+		}
+
+		return aux;
+	}
+
+	public void personasPorEdad(List<Persona> l) throws IOException {
+		TreeMap<Integer, List<Persona>> map = new TreeMap<Integer, List<Persona>>();
+		List<Persona> lista;
+		
+		for (Persona persona : l) {
+			Integer key = persona.getEdad();
+			if (map.containsKey(key)) {
+				lista = map.get(key);
+
+			} else {
+				lista = new LinkedList<Persona>();
+			}
+			
+			lista.add(persona);
+			map.put(key,lista);
 		}
 		
-		return contador;
+		PrintWriter salida = new PrintWriter(new FileWriter("PersonasPorEdad.out"));
+			
+		salida.println("Listado de Personas agrupadas por edad");
 		
+		for (Map.Entry<Integer, List<Persona>> p : map.entrySet()) {
+			Integer edad = p.getKey();
+			List<Persona> lp = p.getValue();
+			salida.println("Edad: " + edad);
+			for (Persona persona : lp) {
+				salida.println(persona);
+			}
+		}
+		
+		salida.close();
 	}
 
 }

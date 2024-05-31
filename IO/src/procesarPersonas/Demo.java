@@ -9,7 +9,7 @@ public class Demo {
 		RegistroPersonas rp = new RegistroPersonas();
 		
 		List<Persona> ps =rp.getPersonas("/home/leoblau/tmp/personas.in");
-		System.out.println("Por Encima De la media " + rp.cpemep(ps));
+		System.out.println("Por Encima De la media " + rp.cantPersonasConEdadSobreLaMedia(ps));
 		
 		List<Persona> mayores = rp.getPersonasMayoresQue(ps, 30);
 		String nombre= "personasMayoresDe" + 30 +".out";
@@ -19,6 +19,16 @@ public class Demo {
 			
 		}
 		System.out.printf("Edad promedio:  %5.2f\n", rp.getEdadPromedio(ps));
+		
+		
+		System.out.println("Personas de mayor edad");
+		 
+		System.out.println(rp.personasDeMayorEdad(ps));
+		
+		System.out.println("Personas de menor edad");
+		System.out.println(rp.personasDeMenorEdad(ps));
+		
+		rp.personasPorEdad(ps);
 		
 	}
 
